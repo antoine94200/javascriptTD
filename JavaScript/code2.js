@@ -1,56 +1,115 @@
 
-    var random=Math.floor(Math.random()*101);
-    var arg2=[];
-    if(arg2.length==0){
-        console.log('Pas de sauvegarde');
-    }else{
-        var name = localStorage.getItem(arg2);
-    }
-    console.log(arg2);
-    
+    var random=FirstRandom();
+    console.log(random);
+
     var tab1=[];
-    var win=true;
+    
+    //[[0,0],[0,0],[0,0],[0,0],[0,0]]
     var turn=0;
-function sendData(event){
 
-    var random2=random;
-    var arg =document.getElementById('name').value;
-   
-   console.log('la valeur acutlle est '+  random);
-   
-   
-    if(arg>=0||arg<=100){
+    function FirstRandom(){
+        return Math.floor(Math.random()*101);
+    }
+
+    function startOrRestart(){
+        if(tab1.length>4){
+            tab1.shift();
+        }
+        tab1.push([random,-1]);
+
+        random=FirstRandom();
+        turn=0;
+        console.log(random);
+        displayTab();
+     }
+
+
+    function Data(){
+        if(tab1.length>4){
+            tab1.shift();
+        }
+
+        var arg =document.getElementById('name').value;
+
+        if(arg>=0||arg<=100){
+            
+            if(arg<random){
+
+                isUp()
+                
+
+            }
+            else if(arg>random){
+
+                isDown()
+                
+            }
+            else if(arg==random){
+            
+                isWins();
+    
+            }
+            
+        }
+        else {
+            console.log('wallah tape qqch de concret frr ')
+        }
+    }
+
+    function displayTab() {
+        html = '<ul>';
+        for (let result of tab1) { //[random,turn]
+            html += '<li> Nombre recherché : ';
+            html += result[0]; // random
+            html += ' | Tentatives : ';
+            html += result[1]; // turn
+            html += ' => PERDU';
+            html += '</li>';
+        }
+        html += '</ul>';
+        document.getElementById("tableau").innerHTML = html;
+    }
+
+    function isWins(){
+
         
-        if(arg<random){
+                turn++;
+                
+                tab1.push([random,turn]);
 
-            console.log('wallah tes trop bas khey');
-            //arg2.push(arg);
-            turn++;
-            
+                random=FirstRandom();
+                turn=0;
+                console.log(random);
 
-        }
-        else if(arg>random){
+                displayTab();
+                console.log(tab1);
+                html ='<p>';
+                html +='BRAVO';
+                html += '</p>';
+                document.getElementById("Win").innerHTML = html;
 
-            console.log('wallah tes trop loin frr');
-            //arg2.push(arg);
-            turn++;
-            
-        }
-        else if(arg==random){
+    }
+    function isUp(){
+
         
-            console.log('wallah cest ca bsartek');
-            turn++;
-            
-           tab1.push(random,turn);
-  
-        }
-        console.log(tab1);
+                turn++;
+
+                html ='<p>';
+                html +='PLUS HAUT';
+                html += '</p>';
+                document.getElementById("UP").innerHTML = html;
+               
+                
+    }
+    function isDown(){
+        
+        turn++;
+        
+        html ='<p>';
+        html +='PLUS BAS';
+        html += '</p>';
+        document.getElementById("Down").innerHTML = html;
         
     }
-    else {
-        console.log('wallah tape qqch de concret frr ')
-    }
-}
-console.log(JSON.stringify({ x: 5, y: 6 }));
-arg2.push(tab1);
-localStorage.setItem(arg2);
+
+    
