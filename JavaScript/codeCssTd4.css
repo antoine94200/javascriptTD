@@ -61,25 +61,30 @@ body{
 	border: 1px solid black;
 	background-color: rgb(255, 255, 255);
 }
-.bouttontake2{
+
+#Down div div{
 	display: inline-table;
 	width: 20px;
 	height: 20px;
 	border: 1px solid black;
-	background-color: rgb(255, 255, 255);
+	background-color: rgb(78, 88, 146);
 }
+
 .red{
-	background-color: rgb(255, 0, 0);
+	background-color: red !important;
 }
 .green{
-	background-color: green;
+	background-color: green !important;
 }
 .yellow{
-	background-color: yellow;
+	background-color: yellow !important;
 }
 .blue{
-	background-color: blue;
+	background-color: blue !important;
 }
 .purple{
-	background-color: purple;
+	background-color: purple !important;
+}
+.blanc{
+	background-color: white !important;
 }

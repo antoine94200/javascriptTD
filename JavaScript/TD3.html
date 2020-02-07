@@ -1,0 +1,142 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Pierre feuille ciseaux</title>
+        <meta charset="UTF-8"/>
+        <link rel="stylesheet" media="screen" href="https://fontlibrary.org/face/space-meatball" type="text/css"/>
+        <h1>Jeux Pierres-Feuilles-Ciseaux</h1>
+        <hr>
+        <h2>Regles:</h2>
+        <p>-La pierre bat les ciseaux<br>
+           -Les ciseaux battent le papier<br>
+           -Le papier bat la pierre<br>
+           le nombre de coup maximal est de 42, au dela le jeux est termine. Le joueur ne peut pas jouer deux fois le meme coup</p>
+        <style>
+
+            body{
+                    background-color:#25544E;
+                    margin-left: auto;
+                    margin-right: auto;
+                    width:800px;
+                }
+
+            h1  {
+                    color:white;
+                    text-align: center;
+                    font-family: 'SpaceMeatballRegular';
+                   font-weight: normal;
+                   font-style: normal;
+                }
+            h2 {
+
+                    color:white;
+                    text-align: center;
+                    font-family: 'SpaceMeatballRegular';
+                   font-weight: normal;
+                   font-style: normal;
+                }
+            p   {
+                color:white;
+                    text-align: center;
+                    font-family: 'SpaceMeatballRegular';
+                   font-weight: normal;
+                   font-style: normal;
+                }
+            label {
+                color:white;
+                    text-align: center;
+                    font-family: 'SpaceMeatballRegular';
+                   font-weight: normal;
+                   font-style: normal;
+            }
+            img {
+                    width: 130px;
+                    height: 100px;
+                    margin-left: auto;
+                    margin-right: auto;
+                }
+ 
+            #bouton {
+                    display: flex;
+                    margin-left:190px;
+                    width: 130px;
+                    }
+
+            
+ 
+            #block-jeu {
+                    display:block;
+                    }
+
+            .partie1 {
+                display:flex;
+               font-weight: normal;
+               font-style: normal;
+                    } 
+            #statut-jeu {
+                color:white;
+                    text-align: center;
+                    font-family: 'SpaceMeatballRegular';
+                   font-weight: normal;
+                   font-style: normal;
+                         }
+
+            .chrono {
+                 display:flex;
+               font-weight: normal;
+               font-style: normal;
+               margin-left: 325px;
+                    }
+            footer {
+                  position: fixed;
+                  left: 0;
+                  bottom: 0;
+                  width: 100%;
+                  background-color: red;
+                  color: white;
+                  text-align: center;
+                    }
+
+
+
+
+
+
+
+        </style>
+    </head>
+    <body>
+        <div class="tout">
+        <form class="partie1" id="general">
+            <label for="name">Entrez le nom du joueur : </label>
+                <div>
+                    <input id="sourceI" type="text" name="name" value="" >
+                        <button type="button" onclick="afficher()">Valider</button>
+                            <p id="test1" >Utilisateur: </p>
+                <br>
+                </div>
+        </form>
+            <form class="chrono" name="chronoForm">
+                    <input type="text" name="chronotime" id="chronotime" value="0:00:00:00"/>
+                    <input type="button" name="startstop" value="start!" onClick="chronoStart()" />
+                    <input type="button" name="reset" value="reset!" onClick="chronoReset()" />
+            </form>
+                <hr><br>
+                <div id="block-jeu">
+                    <div id="bouton">
+                        <button id="pierre"><img src="pierre.jpg"></button>
+                        <button id="feuille"><img src="feuilles.jpg"></button>
+                        <button id="ciseaux"><img src="ciseaux.jpg"></button>
+                    </div><br>
+                 <div id="statut-jeu"></div>
+                </div>
+        <script src="./Code3.js"></script>
+        </div>
+    </body>
+    <div>
+    <footer>
+        <p class="footer">Pierre, Feuilles, Ciseaux by Antoine, Teddy, Jeremy</p>
+    </footer>
+</div>
+</html>
+ 
