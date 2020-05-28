@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="fr">
+
+<head>
+    <link rel="stylesheet" type="text/css" href="creer_recette.css"/>
+    <script src="https://kit.fontawesome.com/aa1f9c66ba.js" crossorigin="anonymous"></script>
+    <meta charset="UTF-8">
+    <title>Créer une recette</title>
+</head>
+
+<body>
+
+    <div id="container">
+      <div id="header_container">
+<!--        <img id="logo" src="img/logofinal.png">-->
+        <p id="title">CREER UNE RECETTE</p>
+      </div>
+        <form>
+          <div id="section_titre">
+            <label>Titre</label>
+            <input type="text" id="titre_recette">
+          </div>
+          <div id="section_categorie">
+            <label>Catégorie</label>
+            <select name="categories" id="categorie_select">
+              <option value="">--Sélectionner une catégorie--</option>
+              <option value="Petit-dejeuner">Petit-déjeuner</option>
+              <option value="Entree">Entrée</option>
+              <option value="Plat">Plat</option>
+              <option value="Dessert">Dessert</option>
+              <option value="En-cas">En-cas</option>
+              <option value="Aperitif">Apéritif</option>
+              <option value="Boisson">Boisson</option>
+            </select>
+          </div>
+          <div id="section_ingredients">
+            <label id="titre_ingredients">Ingrédients</label>
+            <textarea id="ingredients_area">
+            </textarea>
+          </div>
+          <div id="section_etapes">
+            <label id="titre_ietapes">Etapes</label>
+            <textarea id="etapes_area">
+            </textarea>
+          </div>
+          <div id="section_submit">
+            <input type="submit" id="submit_btn" value="Enregistrer la recette" onclick="alert('Recette enregistrée!');window.location.href='home.html';">
+          </div>
+
+        </form>
+
+        <script>
+            let recipes = [];
+
+            const addRecipe = (ev)=>{
+                ev.preventDefault();  //to stop the form submitting
+                let recipe = {
+                    id: Date.now(),
+                    title: document.getElementById('titre_recette').value,
+                    categorie: document.getElementById('categorie_select').value,
+                    ingredient: document.getElementById('ingredients_area').value,
+                    stage: document.getElementById('etapes_area').value
+                }
+                recipes.push(recipe);
+                document.forms[0].reset(); // to clear the form for the next entries
+
+
+                //for display purposes only
+                console.warn('added' , {recipes: recipes} );
+                let pre = document.querySelector('#msg pre');
+                if(pre){
+                    pre.textContent = '\n' + JSON.stringify(recipes,'\t',2);
+                }
+
+                //saving to localStorage
+                localStorage.setItem('MyRecipeList', JSON.stringify(recipes) );
+            }
+            document.addEventListener('DOMContentLoaded', ()=>{
+                document.getElementById('submit_btn').addEventListener('click', addRecipe);
+            });
+        </script>
+
+      <nav id="barre_creer_recette">
+        <img id="home_icon" src="img/home.png" onclick="window.location.href='home.html';">
+        <img id="book_icon" src="img/cookbook.png">
+        <img id="plus_icon" src="img/add%20(1).png" onclick="window.location.href='creer_recette.html';">
+        <img id="back_icon" src="img/back.png" onclick="window.location.href='home.html';">
+      </nav>
+    </div>
+
+</body>
+
+</html>

@@ -1,0 +1,48 @@
+@font-face {
+  font-family: 'Roboto', sans-serif;
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@100;300;400;500;700;900&display=swap');
+}
+
+#container {
+  width: 375px;
+  height: 812px;
+  background-color: #dd7b72;
+  margin-left: auto;
+  margin-right: auto;
+  border: 1px solid whitesmoke;
+  position: relative;
+}
+
+#header_container {
+  text-align: center;
+}
+
+#logo {
+  width: 45%;
+  margin-top: 9%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+#mockup {
+  width: 45%;
+  margin-top: 9%;
+  margin-left: auto;
+  margin-right: auto;
+  display: block;
+}
+
+@media only screen
+and (device-width : 375px)
+and (device-height : 812px)
+and (-webkit-device-pixel-ratio : 3) {
+
+  #container {
+    width: 100%;
+    height: 100%;
+  }
+
+}
+
+
