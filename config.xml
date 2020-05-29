@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<widget xmlns   = "http://www.w3.org/ns/widgets"
+    xmlns:gap   = "http://phonegap.com/ns/1.0"
+    id ="cook_in"
+    versionCode = "10"
+    version     = "1.0.0" >
+
+<!-- versionCode is optional and Android only -->
+
+  <name>cook_in</name>
+
+  <description>
+      Generated with Justinmind
+  </description>
+
+  <author href="" email="ivann.galic@edu.itescia.fr">
+      ivann.galic@edu.itescia.fr
+  </author>
+  <preference name="android-targetSdkVersion" value="26" />
+  
+
+</widget>
